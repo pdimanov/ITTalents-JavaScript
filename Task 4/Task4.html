@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 4</title>
+</head>
+
+<body>
+	<a href="#">test 1</a>
+	<a href="#">test 2</a>
+	<a href="#">test 3</a>
+	<a href="#">test 4</a>
+
+	<script>
+		// Напишете JavaScript, който да връща innerHTML на първия anchor в
+		// HTML документ
+
+		var answer = document.createElement('p');
+		document.body.appendChild(answer);
+
+		var anchors = document.getElementsByTagName('a');
+		if(anchors.length > 0){
+			answer.innerHTML = anchors[0].innerHTML;
+		} else {
+			answer.innerHTML = 'There are now anchors in this HTML.';
+
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 9</title>
+	<style>
+		img {
+			width: 150px;
+			margin: 4%;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+
+<body>
+	<img src="img/0.jpg" alt="">
+	<img src="img/1.jpg" alt="">
+	<img src="img/2.jpg" alt="">
+	<img src="img/3.jpg" alt="">
+	<img src="img/4.jpg" alt="">
+
+	<script>
+		var imgs = document.getElementsByTagName('img'),
+			i;
+
+		for(i = 0; i < imgs.length; i += 1){
+			imgs[i].addEventListener('mouseover', zoomIn);
+			imgs[i].addEventListener('mouseout', zoomOut);
+		}
+
+		function zoomIn(){
+			this.style.width = '300px';
+			this.style.margin = '0px';
+		}
+
+		function zoomOut(){
+			this.style.width = '150px';
+			this.style.margin = '4%';
+		}
+	</script>
+</body>
+</html>

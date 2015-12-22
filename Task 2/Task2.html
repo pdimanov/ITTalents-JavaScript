@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Task 2</title>
+	</head>
+
+	<body>
+		<a href="#">test</a>
+		<a href="#">test</a>
+		<a href="#">test</a>
+		<a href="#">test</a>
+
+		<script>
+			// Напишете JavaScript, който да връща броя на anchors (<а>) в HTML
+			// документ.
+
+			var numbersOfAnchors = document.getElementsByTagName('a');
+			var p = document.createElement('p');
+			p.innerHTML = numbersOfAnchors.length;
+			document.body.appendChild(p);
+
+			console.log(numbersOfAnchors.length);
+		</script>
+	</body>
+</html>

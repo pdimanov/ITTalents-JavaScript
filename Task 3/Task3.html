@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 3</title>
+</head>
+
+<body>
+	<a href="#" id="link">Very awesome link</a>
+	<p id="paragraph">Even more awesome paragraph</p>
+	<div id="div">Yet again, divs are just the best</div>
+	<p id="empty"></p>
+
+	<div>
+		<label for="input">Enter the ID you want: </label>
+		<input type="text" id="input">
+		<button id="submit">Click</button>
+	</div>
+
+	<script>
+		// Напишете JavaScript, който да изкарава popup с innerHTML на елемент
+		// по дадено id.
+
+		var button = document.getElementById('submit');
+
+		button.addEventListener('click', function(){
+			var id = document.getElementById('input').value;
+			var element = document.getElementById(id);
+
+			if(element === null){
+				alert('Sorry, there is no such ID.');
+			} else {
+				if(element.innerHTML == ''){
+					alert('The element with and ID "' + id + '" is and empty string.');
+				} else {
+					alert(element.innerHTML);
+				}
+			}
+			
+		});	
+	</script>
+</body>
+</html>

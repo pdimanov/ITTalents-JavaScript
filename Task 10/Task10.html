@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 10</title>
+	<style>
+		.visible-span {
+			display: inline;
+			color: red;
+		}
+
+		.visible-input {
+			border: 1px solid red;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		input, button {
+			margin: 7px 0px;
+		}
+	</style>
+</head>
+<body>
+	<form action="#.php" method="POST" id="form">
+		<label for="firstname">Firstname </label>
+		<input type="text" id="firstname" class="visible-input">
+		<span class="visible-span">Please enter the field.</span>
+		<br>
+		<label for="lastname">Lastname </label>
+		<input type="text" id="lastname" class="visible-input">
+		<span class="visible-span">Please enter the field.</span>
+		<br>
+		<label for="country">Country </label>
+		<select name="country" id="country">
+			<option value="usa">USA</option>
+			<option value="uk">UK</option>
+			<option value="other">Other</option>
+		</select>
+		<input type="text" id="input-country" class="hidden">
+		<span class="hidden">Please enter the field.</span>
+		<br>
+		<button type="submit" id="submit">Submit</button>
+	</form>
+
+	<script>
+		var inputs = document.getElementsByTagName('input');
+
+		for(var i = 0; i < inputs.length; i++){
+			inputs[i].addEventListener('keyup', validateInput);
+		}
+
+		var select = document.getElementById('country');
+		select.addEventListener('change', function(){
+			var selected = select.options[select.selectedIndex].value,
+				input = document.getElementById('input-country');
+
+			if(selected == 'other'){
+				input.className = 'visible-input';
+				input.nextElementSibling.className = 'visible-span';
+				input.addEventListener('keyup', validateInput);
+			} else {
+				input.value = '';
+				input.className = 'hidden';
+				input.nextElementSibling.className = 'hidden';
+			}
+		})
+
+		function validateInput(){
+			if(this.value == ''){
+				this.className = 'visible-input';
+				this.nextElementSibling.className = 'visible-span';
+			} else {
+				this.className = '';
+				this.nextElementSibling.className = 'hidden';
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 7</title>
+
+	<style>
+		div {
+			padding: 10px;
+			border: 1px solid black;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+		<label for="input">Convert</label>
+		<input type="text" id="input">
+		<select id="select">
+			<option value="kgToLb">Kg to Lb</option>
+			<option value="lbToKg">Lb to Kg</option>
+		</select>
+		<button id="convert">Calculate</button>
+	</div>
+
+	<script>
+		// Напише JavaScript функционалност, която конвертира от kg в lb и
+		// обратно.
+
+		var button = document.getElementById('convert');
+		var result = document.createElement('p');
+		document.getElementById('div').appendChild(result);
+
+		button.addEventListener('click', function(){
+			var input = document.getElementById('input').value;
+			var select = document.getElementById('select');
+			var selectedOption = select.options[select.selectedIndex].value;
+			
+			if(selectedOption === 'kgToLb'){
+				result.innerHTML = parseInt(input * 2.20462262);
+			} else {
+				result.innerHTML = parseInt(input / 2.20462262);
+			}
+		});
+	</script>
+</body>
+</html>

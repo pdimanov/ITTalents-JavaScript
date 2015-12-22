@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 8</title>
+	<style>
+		table, td {
+			border: 1px solid black;
+			padding: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	
+	<label for="add-cols">How many cols do you want on the new row(default is 3)</label>
+	<input type="text" id="add-cols">
+	<button id="add-row">Add</button>
+	<script>
+			// Напишете JavaScript функция, която да добавя редове към
+			// таблица.Тествайте върху HTML документ.
+
+			var table = document.getElementById('table'),
+				button = document.getElementById('add-row');
+			button.addEventListener('click', addRow);
+
+			function addRow(){
+				var cols = document.getElementById('add-cols').value || 3,
+					i;
+
+				if(table == null){
+					table = document.createElement('table');
+					table.id = 'table';
+					document.body.appendChild(table);
+				}
+
+				var newRow = document.createElement('tr');
+				for(i = 0; i < cols; i += 1){
+					var currentCol = document.createElement('td');
+					newRow.appendChild(currentCol);
+				}
+				table.appendChild(newRow);
+				document.getElementById('add-cols').value = ''; // Clearing the input box
+			}
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 5</title>
+</head>
+
+<body>
+	<p><label for="radius">Radius</label></p>
+	<input type="text" id="radius">
+
+	<p><label for="volume">Volume</label></p>
+	<input type="text" id="volume">
+	<br>
+	<button id="calculate">Calculate</button>
+
+	<script>
+		var button = document.getElementById('calculate');
+
+		button.addEventListener('click', function(){
+			var radius = document.getElementById('radius').value;
+			var answer = document.getElementById('volume');
+			answer.value = volumeSphere(radius);
+		})
+
+		function volumeSphere(radius){
+			var volume = 4 / 3 * Math.PI * Math.pow(radius, 3);
+
+			return volume;
+		}
+	</script>
+</body>
+</html>
